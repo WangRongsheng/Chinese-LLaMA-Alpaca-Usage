@@ -350,7 +350,7 @@ python scripts/merge_llama_with_chinese_lora.py \
 - `.pth`文件可用于：[llama.cpp](https://github.com/ggerganov/llama.cpp) 工具进行量化和部署；
 - `.bin`文件可用于：[Transformers](https://github.com/huggingface/transformers) 进行推理；[text-generation-webui](https://github.com/oobabooga/text-generation-webui) 搭建界面；
 
-在线进行单LoRA权重合并同时进行量化：<a href="https://github.com/WangRongsheng/Chinese-LLaMA-Alpaca-Usage/blob/main/notebooks/convert_and_quantize_chinese_llama.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> 。
+在线进行单LoRA权重合并同时进行量化：<a href="https://github.com/WangRongsheng/Chinese-LLaMA-Alpaca-Usage/blob/main/notebooks/convert_and_quantize_chinese_llama.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ### 5.2多LoRA权重合并
 
