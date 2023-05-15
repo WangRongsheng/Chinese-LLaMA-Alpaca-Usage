@@ -6,6 +6,10 @@ python merge_llama_with_chinese_lora.py \
     --output_type [pth|huggingface] \
     --output_dir path/to/output/dir
 """
+
+'''
+功能：导入必要的第三方库
+'''
 import argparse
 import json
 import os
@@ -15,7 +19,9 @@ import peft
 from peft import PeftModel
 from transformers import LlamaForCausalLM, LlamaTokenizer
 from huggingface_hub import hf_hub_download
-
+'''
+功能：设置必要参数
+'''
 parser = argparse.ArgumentParser()
 parser.add_argument('--base_model', default=None, required=True,
                     type=str, help="Please specify a base_model")
@@ -26,15 +32,18 @@ parser.add_argument('--offload_dir', default=None, type=str,
 parser.add_argument('--output_type', default='pth',choices=['pth','huggingface'], type=str,
                     help="save the merged model in pth or huggingface format.")
 parser.add_argument('--output_dir', default='./', type=str)
-
-
+'''
+功能：模型设置
+'''
 emb_to_model_size = {
     4096 : '7B',
     5120 : '13B',
     6656 : '30B',
     8192 : '65B',
 }
+# 权重切分，7B切分成一个权重文件，13B切分成两个权重文件
 num_shards_of_models = {'7B': 1, '13B': 2}
+# 模型参数设置
 params_of_models = {
     '7B':
         {
@@ -60,6 +69,9 @@ def transpose(weight, fan_in_fan_out):
     return weight.T if fan_in_fan_out else weight
 
 # Borrowed and modified from https://github.com/tloen/alpaca-lora
+'''
+功能：将LLaMA模型的权重值修改为目标权重值名称
+'''
 def translate_state_dict_key(k):
     k = k.replace("base_model.model.", "")
     if k == "model.embed_tokens.weight":
@@ -97,16 +109,17 @@ def translate_state_dict_key(k):
         print(k)
         raise NotImplementedError
 
-
+# 对张量权重进行重排，以适应新的模型权重结构的保存
 def unpermute(w):
     return (
         w.view(n_heads, 2, dim // n_heads // 2, dim).transpose(1, 2).reshape(dim, dim)
     )
 
-
+# 将模型权重进行切分，以方便处理和存储
 def save_shards(model_sd, num_shards: int):
     # Add the no_grad context manager
     with torch.no_grad():
+        # 如果为1，则不需要对模型权重进行切分保存
         if num_shards == 1:
             new_state_dict = {}
             for k, v in model_sd.items():
@@ -234,6 +247,7 @@ if __name__=='__main__':
 
     lora_model = None
     lora_model_sd = None
+    # 从一个或者多个路径加载LoRA权重并进行合并
     for lora_index, lora_model_path in enumerate(lora_model_paths):
         print(f"Loading LoRA {lora_model_path}")
         tokenizer = LlamaTokenizer.from_pretrained(lora_model_path)
