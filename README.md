@@ -76,6 +76,8 @@ python -m transformers.models.llama.convert_llama_weights_to_hf \
    --input_dir llama-weights \
    --model_size 7B \
    --output_dir llama-hf-weights
+  
+> python -m transformers.models.llama.convert_llama_weights_to_hf --input_dir ./ --model_size 7B --output_dir ./output/7B-hf
 ```
 
 如果你不想要自己手动转化，也可以使用别人转化好的LLaMA-HF模型，[pinkmanlove](https://huggingface.co/pinkmanlove) 有在HuggingFace提供转化好的LLaMA-HF权重，如果失效可以在`HuggingFace-Models`搜索其他人转化好的。
