@@ -14,10 +14,10 @@
 └── scripts
     ├── chinese_sp.model # 中文词表文件
     ├── crawl_prompt.py # 1. 通过OpenAI的大模型（如ChatGPT、GPT4等）生成可用于微调的数据
-    ├── inference_hf.py # 对微调训练产生的LoRA模型和原始LLaMA模型做推理
-    ├── merge_llama_with_chinese_lora.py
+    ├── inference_hf.py # 5. 对微调训练产生的LoRA模型和原始LLaMA模型做推理
+    ├── merge_llama_with_chinese_lora.py # 4. 合并模型权重
     ├── merge_tokenizers.py # 2. 词表扩充
-    └── run_clm_pt_with_peft.py
+    └── run_clm_pt_with_peft.py # 3. 对模型进行训练或者微调
 ```
 
 ## 1.准备数据
