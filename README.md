@@ -356,3 +356,7 @@ CUDA_VISIBLE_DEVICES=0 python scripts/inference_hf.py \
     --with_prompt \
     --interactive
 ```
+
+## 参考
+
+- https://github.com/ymcui/Chinese-LLaMA-Alpaca
