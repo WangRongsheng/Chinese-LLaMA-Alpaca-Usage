@@ -1,4 +1,4 @@
-<center><img src='./assets/images/home.png' width="80%"></center>
+<center><img src="./assets/images/home.png" height="50%"></center>
 
 本项目基于[Chinese-LLaMA-Alpaca **V3.1**](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/v3.1) 进行使用说明。[Chinese-LLaMA-Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca) 开创了基于LLaMA的中文扩充改进，在原版LLaMA的基础上扩充了中文词表并使用了中文数据进行二次预训练，进一步提升了中文基础语义理解能力。
 
