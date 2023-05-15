@@ -295,6 +295,8 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
 ]
 ```
 
+> 这里的数据同样可以使用[Chinese-LLaMA-Alpaca-Usage/#准备数据-生成方式](https://github.com/WangRongsheng/Chinese-LLaMA-Alpaca-Usage/tree/main#1%E5%87%86%E5%A4%87%E6%95%B0%E6%8D%AE) 生成。
+
 配置说明：
 
 - 如果想继续训练Chinese-Alpaca模型的LoRA权重：
@@ -310,8 +312,6 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     - `--peft_path`: 勿提供此参数，并且从脚本中删除 `--peft_path`；
 
 需指定`--lora_rank`、`--lora_alpha`、`--lora_dropout`、`--trainable`和`--modules_to_save`参数。
-
-> 这里的数据同样可以使用[Chinese-LLaMA-Alpaca-Usage/#准备数据-生成方式](https://github.com/WangRongsheng/Chinese-LLaMA-Alpaca-Usage/tree/main#1%E5%87%86%E5%A4%87%E6%95%B0%E6%8D%AE) 生成。
 
 多机多卡：
 ```python
