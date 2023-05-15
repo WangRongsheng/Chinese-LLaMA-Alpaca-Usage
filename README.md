@@ -400,3 +400,4 @@ CUDA_VISIBLE_DEVICES=0 python scripts/inference_hf.py \
 ## 7.参考
 
 - https://github.com/ymcui/Chinese-LLaMA-Alpaca
+- https://space.bilibili.com/474347248
