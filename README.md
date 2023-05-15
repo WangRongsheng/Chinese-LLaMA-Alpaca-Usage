@@ -99,8 +99,8 @@ python scripts/merge_tokenizers.py \
 > python scripts/merge_tokenizers.py --llama_tokenizer_dir output/7B-hf --chinese_sp_model_file scripts/chinese_sp.model
 ```
 参数说明：
-- `llama_tokenizer_dir`:指向存放原版LLaMA tokenizer的目录（tokenizer.model）
-- `chinese_sp_model_file`:指向用sentencepiece训练的中文词表文件（chinese_sp.model）
+- `llama_tokenizer_dir`:指向存放原版LLaMA tokenizer的目录；
+- `chinese_sp_model_file`:指向用sentencepiece训练的中文词表文件（chinese_sp.model）；
 
 ### 4.2预训练
 
