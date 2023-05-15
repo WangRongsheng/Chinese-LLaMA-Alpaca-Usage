@@ -306,7 +306,7 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
 - 如果想基于中文Chinese-LLaMA训练全新的指令精调LoRA权重：
 
     - `--model_name_or_path`: 合并对应Chinese-LLaMA-LoRA后的HF格式Chinese-LLaMA模型（无论是否是Plus模型）；
-    - `--peft_path`: 勿提供此参数，并且从脚本中删除 --peft_path；
+    - `--peft_path`: 勿提供此参数，并且从脚本中删除 `--peft_path`；
 
 需指定`--lora_rank`、`--lora_alpha`、`--lora_dropout`、`--trainable`和`--modules_to_save`参数。
 
