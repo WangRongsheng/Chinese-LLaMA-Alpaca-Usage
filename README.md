@@ -5,8 +5,8 @@
 **项目构成**：[\<sources> ](https://www.bilibili.com/video/BV1Mh4y187ir/?spm_id_from=333.788&vd_source=c739db1ebdd361d47af5a0b8497417db)
 ```html
 .
-├── README.md
-├── SHA256.md # LLaMA模型SHA值对比
+├── README.md # 使用说明文件
+├── SHA256.md # LLaMA模型SHA值对比文件
 ├── notebooks
 │   ├── convert_and_quantize_chinese_alpaca_plus.ipynb
 │   └── convert_and_quantize_chinese_llama.ipynb
