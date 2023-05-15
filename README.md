@@ -84,7 +84,7 @@ python -m transformers.models.llama.convert_llama_weights_to_hf \
 
 ## 4.训练和微调模型
 
-整个微调训练过程包括三个步骤：
+整个训练和微调过程包括三个步骤：
 1. 词表扩充；
 2. 预训练；
 3. 指令微调；
