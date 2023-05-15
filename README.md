@@ -95,6 +95,8 @@ python -m transformers.models.llama.convert_llama_weights_to_hf \
 python scripts/merge_tokenizers.py \
   --llama_tokenizer_dir llama_tokenizer_dir \
   --chinese_sp_model_file chinese_sp_model_file
+
+> python scripts/merge_tokenizers.py --llama_tokenizer_dir output/7B-hf --chinese_sp_model_file scripts/chinese_sp.model
 ```
 参数说明：
 - `llama_tokenizer_dir`:指向存放原版LLaMA tokenizer的目录（tokenizer.model）
