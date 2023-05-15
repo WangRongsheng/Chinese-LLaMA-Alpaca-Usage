@@ -61,7 +61,7 @@ wget https://agi.gpt4.org/llama/LLaMA/65B/params.json -O ./65B/params.json
 wget https://agi.gpt4.org/llama/LLaMA/65B/checklist.chk -O ./65B/checklist.chk
 ```
 
-您需要下载不同大小参数的LLaMA模型权重，参数越大的模型权重其体积越大，精度相对较好，微调和训练时间也相对较长。一般情况下，7B或者13B模型将是大部分人的选择。
+您需要下载不同大小参数的LLaMA模型权重，参数越大的模型权重体积越大，精度相对较好，微调和训练时间也相对较长。一般情况下，7B或者13B模型将是大部分人的选择。
 
 务必确认LLaMA基模型的完整性，检查是否与[SHA256.md](SHA256.md) 所示的值一致，否则无法进行合并操作。
 
