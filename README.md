@@ -347,8 +347,10 @@ python scripts/merge_llama_with_chinese_lora.py \
 - （可选）`--offload_dir`：对于低内存用户需要指定一个offload缓存路径；
 
 关于`output_type`的更进一步说明：
-- `.pth`文件可用于：llama.cpp工具进行量化和部署；
-- `.bin`文件可用于：Transformers进行推理；text-generation-webui搭建界面；
+- `.pth`文件可用于：[llama.cpp](https://github.com/ggerganov/llama.cpp) 工具进行量化和部署；
+- `.bin`文件可用于：[Transformers](https://github.com/huggingface/transformers) 进行推理；[text-generation-webui](https://github.com/oobabooga/text-generation-webui) 搭建界面；
+
+在线进行单LoRA权重合并同时进行量化：<a href="https://github.com/WangRongsheng/Chinese-LLaMA-Alpaca-Usage/blob/main/notebooks/convert_and_quantize_chinese_llama.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> 。
 
 ### 5.2多LoRA权重合并
 
@@ -364,7 +366,9 @@ python scripts/merge_llama_with_chinese_lora.py \
 
 ⚠️ 两个LoRA模型的顺序很重要，不能颠倒。先写LLaMA-Plus-LoRA然后写Alpaca-Plus-LoRA。 ⚠️
 
-## 运行模型
+在线进行多LoRA权重合并同时进行量化：<a href="https://github.com/WangRongsheng/Chinese-LLaMA-Alpaca-Usage/blob/main/notebooks/convert_and_quantize_chinese_alpaca_plus.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+## 6.运行模型
 
 ```python
 CUDA_VISIBLE_DEVICES=0 python scripts/inference_hf.py \
@@ -382,6 +386,17 @@ CUDA_VISIBLE_DEVICES=0 python scripts/inference_hf.py \
     --interactive
 ```
 
-## 参考
+删除`CUDA_VISIBLE_DEVICES=0` 则为CPU推理模式。
+
+本项目中的模型主要支持以下量化、推理和部署方式。
+
+| 推理和部署方式                                               | 特点                                         | 平台  | CPU  | GPU  | 量化加载 | 图形界面 |                             教程                             |
+| :----------------------------------------------------------- | -------------------------------------------- | :---: | :--: | :--: | :------: | :------: | :----------------------------------------------------------: |
+| [**llama.cpp**](https://github.com/ggerganov/llama.cp)       | 丰富的量化选项和高效本地推理                 | 通用  |  ✅   |  ✅   |    ✅     |    ❌     | [链接](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/llama.cpp量化部署) |
+| [**🤗Transformers**](https://github.com/huggingface/transformers) | 原生transformers推理接口                     | 通用  |  ✅   |  ✅   |    ✅     |    ✅     | [链接](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用Transformers推理) |
+| [**text-generation-webui**](https://github.com/oobabooga/text-generation-webui) | 前端Web UI界面的部署方式                     | 通用  |  ✅   |  ✅   |    ✅     |    ✅     | [链接](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用text-generation-webui搭建界面) |
+| [**LlamaChat**](https://github.com/alexrozanski/LlamaChat)   | macOS下的图形交互界面（需搭配llama.cpp模型） | MacOS |  ✅   |  ❌   |    ✅     |    ✅     | [链接](https://github.com/ymcui/Chinese-LLaMA-Alpaca/wiki/使用LlamaChat图形界面（macOS）) |
+
+## 7.参考
 
 - https://github.com/ymcui/Chinese-LLaMA-Alpaca
