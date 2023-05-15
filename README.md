@@ -284,6 +284,7 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
 - `--dataset_dir`: 指令精调数据的目录，包含一个或多个以json结尾的Stanford Alpaca格式的指令精调数据文件；
 - `--validation_file`: 用作验证集的单个指令精调文件，以json结尾，同样遵循Stanford Alpaca格式；
 
+
 所谓Stanford Alpaca格式即：
 ```json
 [
@@ -309,6 +310,8 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     - `--peft_path`: 勿提供此参数，并且从脚本中删除 `--peft_path`；
 
 需指定`--lora_rank`、`--lora_alpha`、`--lora_dropout`、`--trainable`和`--modules_to_save`参数。
+
+> 这里的数据同样可以使用[Chinese-LLaMA-Alpaca-Usage/#准备数据-生成方式](https://github.com/WangRongsheng/Chinese-LLaMA-Alpaca-Usage/tree/main#1%E5%87%86%E5%A4%87%E6%95%B0%E6%8D%AE) 生成。
 
 多机多卡：
 ```python
