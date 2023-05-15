@@ -188,9 +188,10 @@ torchrun \
     ...
 ```
 
-中文LLaMA模型在原版的基础上扩充了中文词表，使用了中文通用纯文本数据进行二次预训练。这里作者提供了两种下载这些预训练的权重，而不需要我们自己花费资源训练：
+中文LLaMA模型在原版的基础上扩充了中文词表，使用了中文通用纯文本数据进行二次预训练。这里作者提供了两种下载这些预训练权重的方式，而不需要我们自己花费资源训练：
 
 - （1）Google Drive或者百度网盘
+
 | 模型名称                 | 训练数据 | 重构模型 | 大小 |                    LoRA下载                   |
 | :----------------------- | :------: | :--------------------: | :----------------: | :----------------------------------------------------------: |
 | Chinese-LLaMA-7B         | 通用20G  |      原版LLaMA-7B      |        770M        | [[百度网盘]](https://pan.baidu.com/s/1oORTdpr2TvlkxjpyWtb5Sw?pwd=33hb)</br>[[Google Drive]](https://drive.google.com/file/d/1iQp9T-BHjBjIrFWXq_kIm_cyNmpvv5WN/view?usp=sharing) |
@@ -199,6 +200,7 @@ torchrun \
 | Chinese-LLaMA-Plus-13B ⭐️ | 通用120G |     原版LLaMA-13B      |         1G         | [[百度网盘]](https://pan.baidu.com/s/1VGpNlrLx5zHuNzLOcTG-xw?pwd=8cvd)<br/>[[Google Drive]](https://drive.google.com/file/d/1q0L5Me_1j_9iiRRNfuEFUt3SOjQo3-g3/view?usp=share_link) |
 
 - （2）可以在🤗Model Hub下载以上所有模型，并且使用[transformers](https://github.com/huggingface/transformers)和[PEFT](https://github.com/huggingface/peft)调用中文LLaMA模型。以下模型调用名称指的是使用`.from_pretrained()`中指定的模型名称。
+
 | 模型名                  | 模型调用名称                            |                             链接                             |
 | ----------------------- | :-------------------------------------- | :----------------------------------------------------------: |
 | Chinese-LLaMA-7B        | ziqingyang/chinese-llama-lora-7b        | [Model Hub Link](https://huggingface.co/ziqingyang/chinese-llama-lora-7b) |
