@@ -344,7 +344,7 @@ python scripts/merge_llama_with_chinese_lora.py \
 - `--lora_model`：中文LLaMA/Alpaca LoRA解压后文件所在目录，也可使用🤗Model Hub模型调用名称；
 - `--output_type`: 指定输出格式，可为`pth`或`huggingface`。若不指定，默认为`pth`；
 - `--output_dir`：指定保存全量模型权重的目录，默认为`./`；
-（可选）--offload_dir：对于低内存用户需要指定一个offload缓存路径；
+- （可选）`--offload_dir`：对于低内存用户需要指定一个offload缓存路径；
 
 关于`output_type`的更进一步说明：
 - `.pth`文件可用于：llama.cpp工具进行量化和部署；
