@@ -6,10 +6,7 @@
 ```html
 .
 ├── README.md
-├── SHA256.md
-├── data
-│   └── alpaca_data_zh_51k.json
-├── examples # 模型性能测试结果，请查看源仓库：https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/v3.1/examples
+├── SHA256.md # LLaMA模型SHA值对比
 ├── notebooks
 │   ├── convert_and_quantize_chinese_alpaca_plus.ipynb
 │   └── convert_and_quantize_chinese_llama.ipynb
