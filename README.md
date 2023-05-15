@@ -2,7 +2,7 @@
 
 本项目基于[Chinese-LLaMA-Alpaca **V3.1**](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/v3.1) 进行使用说明。[Chinese-LLaMA-Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca) 开创了基于LLaMA的中文扩充改进，在原版LLaMA的基础上扩充了中文词表并使用了中文数据进行二次预训练，进一步提升了中文基础语义理解能力。
 
-**项目构成**：
+**项目构成**：[\<sources> ](https://www.bilibili.com/video/BV1Mh4y187ir/?spm_id_from=333.788&vd_source=c739db1ebdd361d47af5a0b8497417db)
 ```html
 .
 ├── README.md
@@ -20,7 +20,7 @@
     └── run_clm_pt_with_peft.py # 3. 对模型进行训练或者微调
 ```
 
-## 1.准备数据
+## 1.准备数据 [\<sources> ](https://www.bilibili.com/video/BV1ns4y1g717/?spm_id_from=333.788&vd_source=c739db1ebdd361d47af5a0b8497417db)
 
 不管你是要进行预训练还是微调，你都需要准备数据，数据准备的两种方式：
 1. （公开）如果您可以使用公开的标准的可用于微调或者训练的数据，您可以跳过此步骤；
@@ -89,7 +89,7 @@ python -m transformers.models.llama.convert_llama_weights_to_hf \
 2. 预训练（可选）；
 3. 指令微调；
 
-### 4.1词表扩充
+### 4.1词表扩充 [\<sources> ](https://www.bilibili.com/video/BV1Es4y1g7uu/?spm_id_from=333.788&vd_source=c739db1ebdd361d47af5a0b8497417db)
 
 ```python
 python scripts/merge_tokenizers.py \
@@ -325,7 +325,7 @@ torchrun \
     ...
 ```
 
-## 5.合并权重
+## 5.合并权重 [\<sources> ](https://www.bilibili.com/video/BV1yo4y137u9/?spm_id_from=333.788&vd_source=c739db1ebdd361d47af5a0b8497417db)
 
 ### 5.1单LoRA权重合并
 
@@ -368,7 +368,7 @@ python scripts/merge_llama_with_chinese_lora.py \
 
 在线进行多LoRA权重合并同时进行量化：<a href="https://github.com/WangRongsheng/Chinese-LLaMA-Alpaca-Usage/blob/main/notebooks/convert_and_quantize_chinese_alpaca_plus.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-## 6.运行模型
+## 6.部署和运行模型 [\<sources> ](https://www.bilibili.com/video/BV1xz4y18749/?spm_id_from=333.788&vd_source=c739db1ebdd361d47af5a0b8497417db)
 
 ```python
 CUDA_VISIBLE_DEVICES=0 python scripts/inference_hf.py \
@@ -386,7 +386,7 @@ CUDA_VISIBLE_DEVICES=0 python scripts/inference_hf.py \
     --interactive
 ```
 
-删除`CUDA_VISIBLE_DEVICES=0` 则为CPU推理模式。
+删除`CUDA_VISIBLE_DEVICES=0` 则为CPU推理模式。当然这里也可以以WebUI方式进行运行部署。 [\<sources> ](https://www.bilibili.com/video/BV1im4y1h7wo/?spm_id_from=333.788&vd_source=c739db1ebdd361d47af5a0b8497417db)
 
 本项目中的模型主要支持以下量化、推理和部署方式。
 
