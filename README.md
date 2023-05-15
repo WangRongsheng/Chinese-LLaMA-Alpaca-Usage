@@ -82,7 +82,7 @@ python -m transformers.models.llama.convert_llama_weights_to_hf \
 
 如果你不想要自己手动转化，也可以使用别人转化好的LLaMA-HF模型，[pinkmanlove](https://huggingface.co/pinkmanlove) 有在HuggingFace提供转化好的LLaMA-HF权重，如果失效可以在`HuggingFace-Models`搜索其他人转化好的。
 
-## 4.训练和微调模型
+## 4.训练和微调模型 [\<sources> ](https://www.bilibili.com/video/BV1a24y1K79a/?vd_source=c739db1ebdd361d47af5a0b8497417db)
 
 整个训练和微调过程包括三个步骤：
 1. 词表扩充；
