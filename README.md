@@ -86,7 +86,7 @@ python -m transformers.models.llama.convert_llama_weights_to_hf \
 
 整个训练和微调过程包括三个步骤：
 1. 词表扩充；
-2. 预训练；
+2. 预训练（可选）；
 3. 指令微调；
 
 ### 4.1词表扩充
@@ -102,7 +102,7 @@ python scripts/merge_tokenizers.py \
 - `llama_tokenizer_dir`:指向存放原版LLaMA tokenizer的目录；
 - `chinese_sp_model_file`:指向用sentencepiece训练的中文词表文件（chinese_sp.model）；
 
-### 4.2预训练
+### 4.2预训练（可选）
 
 在预训练阶段，使用通用中文语料在原版LLaMA权重的基础上进一步进行预训练。该过程又分为两个阶段：
 
@@ -187,6 +187,25 @@ torchrun \
   run_clm_pt_with_peft.py \
     ...
 ```
+
+中文LLaMA模型在原版的基础上扩充了中文词表，使用了中文通用纯文本数据进行二次预训练。这里作者提供了两种下载这些预训练的权重，而不需要我们自己花费资源训练：
+
+- （1）Google Drive或者百度网盘
+| 模型名称                 | 训练数据 | 重构模型 | 大小 |                    LoRA下载                   |
+| :----------------------- | :------: | :--------------------: | :----------------: | :----------------------------------------------------------: |
+| Chinese-LLaMA-7B         | 通用20G  |      原版LLaMA-7B      |        770M        | [[百度网盘]](https://pan.baidu.com/s/1oORTdpr2TvlkxjpyWtb5Sw?pwd=33hb)</br>[[Google Drive]](https://drive.google.com/file/d/1iQp9T-BHjBjIrFWXq_kIm_cyNmpvv5WN/view?usp=sharing) |
+| Chinese-LLaMA-Plus-7B ⭐️  | 通用120G |      原版LLaMA-7B      |        790M        | [[百度网盘]](https://pan.baidu.com/s/1zvyX9FN-WSRDdrtMARxxfw?pwd=2gtr)</br>[[Google Drive]](https://drive.google.com/file/d/1N97m3rBj-rp-J1X8rgRfluyomEscfAq0/view?usp=sharing) |
+| Chinese-LLaMA-13B        | 通用20G  |     原版LLaMA-13B      |         1G         | [[百度网盘]](https://pan.baidu.com/s/1BxFhYhDMipW7LwI58cGmQQ?pwd=ef3t)<br/>[[Google Drive]](https://drive.google.com/file/d/12q9EH4mfKRnoKlbkkhzv1xDwWnroo9VS/view?usp=sharing) |
+| Chinese-LLaMA-Plus-13B ⭐️ | 通用120G |     原版LLaMA-13B      |         1G         | [[百度网盘]](https://pan.baidu.com/s/1VGpNlrLx5zHuNzLOcTG-xw?pwd=8cvd)<br/>[[Google Drive]](https://drive.google.com/file/d/1q0L5Me_1j_9iiRRNfuEFUt3SOjQo3-g3/view?usp=share_link) |
+
+- （2）可以在🤗Model Hub下载以上所有模型，并且使用[transformers](https://github.com/huggingface/transformers)和[PEFT](https://github.com/huggingface/peft)调用中文LLaMA模型。以下模型调用名称指的是使用`.from_pretrained()`中指定的模型名称。
+| 模型名                  | 模型调用名称                            |                             链接                             |
+| ----------------------- | :-------------------------------------- | :----------------------------------------------------------: |
+| Chinese-LLaMA-7B        | ziqingyang/chinese-llama-lora-7b        | [Model Hub Link](https://huggingface.co/ziqingyang/chinese-llama-lora-7b) |
+| Chinese-LLaMA-Plus-7B   | ziqingyang/chinese-llama-plus-lora-7b   | [Model Hub Link](https://huggingface.co/ziqingyang/chinese-llama-plus-lora-7b) |
+| Chinese-LLaMA-13B       | ziqingyang/chinese-llama-lora-13b       | [Model Hub Link](https://huggingface.co/ziqingyang/chinese-llama-lora-13b) |
+| Chinese-LLaMA-Plus-13B  | ziqingyang/chinese-llama-plus-lora-13b  | [Model Hub Link](https://huggingface.co/ziqingyang/chinese-llama-plus-lora-13b) |
+
 
 ### 4.3指令微调
 
