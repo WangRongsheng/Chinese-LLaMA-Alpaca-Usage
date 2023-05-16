@@ -102,6 +102,11 @@ python scripts/merge_tokenizers.py \
 - `llama_tokenizer_dir`:指向存放原版LLaMA tokenizer的目录；
 - `chinese_sp_model_file`:指向用sentencepiece训练的中文词表文件（chinese_sp.model）；
 
+> **Note**
+> 
+> 词表的扩充有两大方法：（1）合并扩充词表；（2）找一个大的词表，删除无用的词得到一个词表；
+
+
 ### 4.2预训练（可选）
 
 在预训练阶段，使用通用中文语料在原版LLaMA权重的基础上进一步进行预训练。该过程又分为两个阶段：
